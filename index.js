@@ -184,8 +184,9 @@ function animate(){
         }) &&
         enemy.isAttacking
         ) {
-        console.log('hit2');
         enemy.isAttacking = false;
+        player.health -= 10
+        document.querySelector('#playerHealth').style.width = player.health + '%';
     }
 }
 
