@@ -140,29 +140,34 @@ function retangularColision({rectangle1,rectangle2}) {
     )
 }
 
+function determineWinner({player, enemy, timerId}) {
+    clearTimeout(timerId);
+    document.querySelector('#display-text').style.display = 'flex';
+    if (player.health === enemy.health) {
+        document.querySelector('#display-text').innerHTML = 'Tie';
+    }   
+    else if (player.health > enemy.health) {
+        document.querySelector('#display-text').innerHTML = 'Player 1 wins!';
+    }   
+    else if (player.health < enemy.health) {
+        document.querySelector('#display-text').innerHTML = 'Player 2 wins!';
+    }
+}
+
 let timer = 60;
+let timerId;
 
 function decreaseTimer() {
     if(timer > 0) {
-        setTimeout(decreaseTimer, 1000)
+        timerId = setTimeout(decreaseTimer, 1000)
         timer--
         document.querySelector('#timer').innerHTML = timer;
     }
 
     if (timer === 0) {
-        document.querySelector('#display-text').style.display = 'flex';
-        if (player.health === enemy.health) {
-            document.querySelector('#display-text').innerHTML = 'Tie';
-        }   
-        else if (player.health >= enemy.health) {
-            document.querySelector('#display-text').innerHTML = 'Player 1 wins!';
-        }
-        }   
-        else if (enemy.health >= player.health) {
-            document.querySelector('#display-text').innerHTML = 'Player 2 wins!';
-        }
+        determineWinner({player, enemy, timerId})
     }
-
+}
 decreaseTimer();
 
 function animate(){
@@ -216,8 +221,7 @@ function animate(){
 
     //endgame based on health
     if (enemy.health <= 0 || player.health <=0) {
-        document.querySelector('#display-text').style.display = 'flex';
-        document.querySelector('#display-text').innerHTML = 'Player 1 wins!'
+        determineWinner({ player, enemy, timerId })
     }
 }
 
