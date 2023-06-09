@@ -132,7 +132,7 @@ class Fighter extends Sprite {
         attackAudio.src = slash1.src;
         attackAudio.play();
         const ouchAudio = document.querySelector('#ouchAudio');
-        const ouch1 = document.querySelector('#ouch');
+        const ouch1 = document.querySelector('#ouch-joke');
         ouchAudio.src = ouch1.src;
         ouchAudio.play();
 
@@ -167,6 +167,8 @@ class Fighter extends Sprite {
                     this.image = this.sprites.run.image
                     this.framesMax = this.sprites.run.framesMax
                     this.frameCurrent = 0
+                    // const runAudio = document.querySelector('#runAudio');
+                    // runAudio.play();
                 }
                 break;
             case 'jump':
@@ -174,6 +176,8 @@ class Fighter extends Sprite {
                     this.image = this.sprites.jump.image
                     this.framesMax = this.sprites.jump.framesMax
                     this.frameCurrent = 0
+                    const jumpAudio = document.querySelector('#jumpAudio');
+                    jumpAudio.play();
                 }
                 break;
                 case 'fall':
@@ -202,6 +206,8 @@ class Fighter extends Sprite {
                         this.image = this.sprites.death.image
                         this.framesMax = this.sprites.death.framesMax
                         this.frameCurrent = 0
+                        const deathAudio = document.querySelector('#deathAudio');
+                        deathAudio.play();
                     }
                     break;
         }
