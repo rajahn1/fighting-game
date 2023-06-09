@@ -206,6 +206,9 @@ function animate(){
     } else{
         player.switchSprite('idle')
     }
+    if (keys.w.pressed && player.height + player.position.y + player.velocity.y >= canvas.height - 96) {
+        player.velocity.y = -15;
+    }
 
     //jump player
     if (player.velocity.y < 0) {
@@ -223,6 +226,9 @@ function animate(){
         enemy.switchSprite('run')
     } else {
         enemy.switchSprite('idle')
+    }
+    if (keys.ArrowUp.pressed && enemy.height + enemy.position.y + enemy.velocity.y >= canvas.height - 96) {
+        enemy.velocity.y = -15;
     }
 
     //jump enemy
@@ -289,14 +295,13 @@ window.addEventListener('keydown', (event) => {
 
         switch (event.key) {
             case 'w':
-                player.velocity.y = -20
+                keys.w.pressed = true;
                 break;
             case 'a':
                 keys.a.pressed = true;
                 player.lastKey = 'a';
                 break;
             case 's':
-                if (player.position.y + player.height + player.velocity.y >= canvas.height)
                 keys.s.pressed = true;
                 player.lastKey = 's';
                 break;
@@ -314,14 +319,13 @@ window.addEventListener('keydown', (event) => {
     if (!enemy.dead) {
         switch(event.key){
             case 'ArrowUp':
-                enemy.velocity.y = -20
+                keys.ArrowUp.pressed = true;
                 break;
             case 'ArrowLeft':
                 keys.ArrowLeft.pressed = true;
                 enemy.lastKey = 'ArrowLeft'
                 break;
             case 'ArrowDown':
-                if (player.position.y + player.height + player.velocity.y >= canvas.height)
                 keys.ArrowDown.pressed = true;
                 break;
             case 'ArrowRight':
