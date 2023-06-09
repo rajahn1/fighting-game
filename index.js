@@ -6,7 +6,7 @@ canvas.height = 576;
 
 c.fillRect(0, 0, canvas.width, canvas.height);
 
-const gravity = 0.7;
+const gravity = 0.6;
 
 const backgroud = new Sprite ({
     position: {
@@ -151,6 +151,67 @@ const enemy = new Fighter({
     },
 });
 
+const wizard = new Fighter({
+    position: {
+    x: 400,
+    y: 0
+    },
+    velocity: {
+        x: 0,
+        y: 0
+    },
+    color: 'red',
+    offset: {
+        x: 50,
+        y: 0
+    },
+    imageSrc: './assets/evilWizard/Idle.png',
+    framesMax: 8,
+    scale: 2.5,
+    offset: {
+        x: 215,
+        y: 270
+    },
+    sprites: {
+        idle: {
+            imageSrc: './assets/evilWizard/Idle.png',
+            framesMax: 8
+        },
+        run: {
+            imageSrc: './assets/evilWizard/Run.png',
+            framesMax: 8,
+        },
+        jump: {
+            imageSrc: './assets/evilWizard/Jump.png',
+            framesMax: 2
+        },
+        fall: {
+            imageSrc: './assets/evilWizard/Fall.png',
+            framesMax: 2
+        },
+        attack1: {
+            imageSrc: './assets/evilWizard/Attack1.png',
+            framesMax: 8
+        },
+        takeHit: {
+            imageSrc: './assets/evilWizard/Take hit.png',
+            framesMax: 3
+        },
+        death: {
+            imageSrc: './assets/evilWizard/Death.png',
+            framesMax: 7
+        }
+    },
+    attackBox:{
+        offset: {
+            x: 100,
+            y: 50,
+        },
+        width: 155,
+        height: 50,
+    }
+});
+
 const keys = {
     w: {
         pressed: false,
@@ -192,6 +253,7 @@ function animate(){
     c.fillRect(0,0, canvas.width, canvas.height)
     player.update();
     enemy.update();
+    // wizard.update();
 
     player.velocity.x = 0
     enemy.velocity.x = 0
