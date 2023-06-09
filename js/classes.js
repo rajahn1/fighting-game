@@ -127,6 +127,14 @@ class Fighter extends Sprite {
 
     takeHit(){
         this.health -= 10
+        const attackAudio = document.querySelector('#attackAudio');
+        const slash1 = document.querySelector('#slash1');
+        attackAudio.src = slash1.src;
+        attackAudio.play();
+        const ouchAudio = document.querySelector('#ouchAudio');
+        const ouch1 = document.querySelector('#ouch');
+        ouchAudio.src = ouch1.src;
+        ouchAudio.play();
 
         if (this.health <= 0) {
             this.switchSprite('death');
