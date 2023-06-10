@@ -7,7 +7,8 @@ canvas.height = 576;
 c.fillRect(0, 0, canvas.width, canvas.height);
 
 const gravity = 0.6;
-
+const backGroundAudio = document.querySelector('#bgAudio');
+backGroundAudio.play();
 const backgroud = new Sprite ({
     position: {
         x: 0,
