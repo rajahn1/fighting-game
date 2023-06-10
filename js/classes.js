@@ -167,8 +167,6 @@ class Fighter extends Sprite {
                     this.image = this.sprites.run.image
                     this.framesMax = this.sprites.run.framesMax
                     this.frameCurrent = 0
-                    // const runAudio = document.querySelector('#runAudio');
-                    // runAudio.play();
                 }
                 break;
             case 'jump':

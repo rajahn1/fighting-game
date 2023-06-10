@@ -279,6 +279,38 @@ function animate(){
         player.switchSprite('fall')
     }
 
+    //player sounds
+    function runSound(){
+        const runAudio = document.querySelector('#runAudio');
+        if (player.position.y < 330) {
+            runAudio.pause();
+            runAudio.currentTime = 0;
+            return
+        }
+
+        if (keys.a.pressed || keys.d.pressed){
+            runAudio.play();
+        }
+    }
+    runSound();
+        
+    
+    function enemySound(){
+        const enemyRunAudio = document.querySelector('#enemyRun');
+        if (enemy.position.y < 330) {
+            enemyRunAudio.pause();
+            enemyRunAudio.currentTime = 0;
+            return
+        }
+
+        if (keys.ArrowRight.pressed || keys.ArrowLeft.pressed){
+            enemyRunAudio.play();
+        }
+    }
+   
+    enemySound();
+
+
     //enemy movement
     if  (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
         enemy.velocity.x = -5
@@ -320,6 +352,8 @@ function animate(){
     // if player misses
     if (player.isAttacking && player.frameCurrent === 4) {
         player.isAttacking = false;
+        const slashAir = document.querySelector('#playerSlashAir');
+        slashAir.play(); 
     }
 
     //player gets hit
@@ -341,6 +375,8 @@ function animate(){
     // if enemy misses
     if (enemy.isAttacking && enemy.frameCurrent === 2) {
         enemy.isAttacking = false;
+        const slashAir = document.querySelector('#enemySlashAir');
+        slashAir.play(); 
     }
 
 
