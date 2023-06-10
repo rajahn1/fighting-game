@@ -7,8 +7,7 @@ canvas.height = 576;
 c.fillRect(0, 0, canvas.width, canvas.height);
 
 const gravity = 0.6;
-const backGroundAudio = document.querySelector('#bgAudio');
-backGroundAudio.play();
+
 const backgroud = new Sprite ({
     position: {
         x: 0,
@@ -256,6 +255,8 @@ function animate(){
     c.fillRect(0,0, canvas.width, canvas.height)
     player.update();
     enemy.update();
+    const backGroundAudio = document.querySelector('#bgAudio');
+    backGroundAudio.play();
     // wizard.update();
 
     player.velocity.x = 0
