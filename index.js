@@ -86,7 +86,8 @@ const player = new Fighter({
         },
         width: 155,
         height: 50,
-    }
+    },
+    attackPower: 5,
 });
 
 
@@ -149,6 +150,7 @@ const enemy = new Fighter({
         width: 170,
         height: 50,
     },
+    attackPower: 10,
 });
 
 const wizard = new Fighter({

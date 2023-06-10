@@ -55,7 +55,8 @@ class Fighter extends Sprite {
         framesMax = 1, 
         offset = { x: 0, y: 0},
         sprites,
-        attackBox = { offset: {}, width: undefined, height: undefined }
+        attackBox = { offset: {}, width: undefined, height: undefined },
+        attackPower
      })
         {
         super({
@@ -88,6 +89,7 @@ class Fighter extends Sprite {
         this.framesHold = 5
         this.sprites = sprites
         this.dead = false
+        this.attackPower = attackPower
 
         for (const sprite in this.sprites) {
             sprites[sprite].image = new Image();
@@ -126,7 +128,7 @@ class Fighter extends Sprite {
     }
 
     takeHit(){
-        this.health -= 10
+        this.health -= this.attackPower
         const attackAudio = document.querySelector('#attackAudio');
         const slash1 = document.querySelector('#slash1');
         attackAudio.src = slash1.src;
