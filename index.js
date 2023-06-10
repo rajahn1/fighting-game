@@ -174,8 +174,8 @@ const wizard = new Fighter({
     },
     sprites: {
         idle: {
-            imageSrc: './assets/evilWizard/Idle.png',
-            framesMax: 8
+            imageSrc: './assets/evilWizard/Run.png',
+            framesMax: 5
         },
         run: {
             imageSrc: './assets/evilWizard/Run.png',
